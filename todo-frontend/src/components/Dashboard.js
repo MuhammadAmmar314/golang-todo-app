@@ -81,7 +81,11 @@ export default function Dashboard() {
                   />
                   <span>[{new Date(todo.CreatedAt).toLocaleString()}] {todo.title}</span>
                 </div>
-                <button onClick={() => deleteTodo(todo.ID)} style={styles.deleteButton}>❌</button>
+                <button onClick={(e) => {
+                      e.stopPropagation();
+                      deleteTodo(todo.ID)
+                    }}
+                  style={styles.deleteButton}>❌</button>
               </li>
             ))
           )}
